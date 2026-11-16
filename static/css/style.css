@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f6fa;
+    color: #263746;
+    margin: 0;
+    padding: 20px;
+}
+
+.main-box {
+    max-width: 750px;
+    margin: auto;
+}
+
+h1 {
+    color: #176b87;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.main-box > p {
+    text-align: center;
+    color: #687987;
+    margin-bottom: 25px;
+}
+
+.search-box {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #d7e0e7;
+}
+
+h3 {
+    color: #29495b;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.text-input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #d7e0e7;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.checkbox-box {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #d7e0e7;
+    border-radius: 5px;
+    background-color: #fbfdfe;
+    cursor: pointer;
+}
+
+.drop-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #fbfdfe;
+    border: 1px solid #d7e0e7;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.menu-box {
+    display: none;
+    border: 1px solid #d7e0e7;
+    background-color: white;
+    max-height: 220px;
+    overflow-y: scroll;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.menu-buttons {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e4ebef;
+}
+
+.menu-buttons button {
+    background-color: #e8f4f7;
+    border: 1px solid #176b87;
+    color: #176b87;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.menu-item {
+    display: block;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #176b87;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #10566e;
+}
+
+.result-card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: 1px solid #d7e0e7;
+}
+
+.result-card h3 {
+    color: #176b87;
+    margin-top: 0;
+}
+
+.rating {
+    color: #d18a24;
+    font-weight: bold;
+}
+
+.result-card a {
+    color: #176b87;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.error-box {
+    background-color: #fff0ef;
+    border: 1px solid #f1c3bf;
+    color: #a33c32;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+
+.no-results-box {
+    background-color: #fff8e8;
+    border: 1px solid #f1dfb5;
+    color: #806020;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+
+.footer {
+    text-align: center;
+    color: #8796a0;
+    font-size: 12px;
+    margin-top: 30px;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CareConnect</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="main-box">
+    <h1>CareConnect</h1>
+    <p>Find local healthcare providers quickly and easily.</p>
+
+    <form method="POST">
+        <div class="search-box">
+            <h3>Location</h3>
+            <input type="text" name="location" class="text-input" placeholder="Enter city or zip code" value="{{ location }}" required>
+
+            <h3>Quick Select</h3>
+            <label class="checkbox-box">
+                <input type="checkbox" name="categories" value="hospitals"> 🏥 Hospitals
+            </label>
+            <label class="checkbox-box">
+                <input type="checkbox" name="categories" value="urgent_care"> 🚑 Urgent Care
+            </label>
+            <label class="checkbox-box">
+                <input type="checkbox" name="categories" value="dentists"> 🦷 Dentists
+            </label>
+
+            <h3>More Healthcare Categories</h3>
+            <button type="button" id="dropdownButton" class="drop-btn">
+                <span id="selectedCategoryText">Select healthcare categories</span> ▼
+            </button>
+            
+            <div id="categoryMenu" class="menu-box">
+                <div class="menu-buttons">
+                    <button type="button" id="selectAllButton">Select All</button>
+                    <button type="button" id="clearAllButton">Clear All</button>
+                </div>
+
+                {% for alias, label in category_options.items() %}
+                    {% if alias not in ['hospitals', 'urgent_care', 'dentists'] %}
+                        <label class="menu-item">
+                            <input type="checkbox" name="categories" value="{{ alias }}"> {{ label }}
+                        </label>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <br><br>
+            <button type="submit" class="submit-btn">🔍 Search Healthcare Providers</button>
+        </div>
+    </form>
+
+    {% if error %}
+        <div class="error-box">{{ error }}</div>
+    {% endif %}
+
+    {% if clinics %}
+        <h2>Search Results ({{ clinics|length }})</h2>
+
+        {% for clinic in clinics %}
+            <div class="result-card">
+                <h3>{{ clinic.name }}</h3>
+                <p class="rating">★ {{ clinic.rating }} / 5 ({{ clinic.review_count }} reviews)</p>
+                <p><b>Description:</b> {{ clinic.description }}</p>
+                <p><b>Address:</b> {{ clinic.location.display_address | join(', ') }}</p>
+
+                {% if clinic.display_phone %}
+                    <p><b>Phone:</b> {{ clinic.display_phone }}</p>
+                {% endif %}
+
+                {% if clinic.distance %}
+                    <p><b>Distance:</b> {{ "%.2f"|format(clinic.distance / 1609.34) }} miles</p>
+                {% endif %}
+
+                {% if clinic.url %}
+                    <a href="{{ clinic.url }}" target="_blank">View on Yelp →</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+    {% elif request.method == "POST" and not error %}
+        <div class="no-results-box">No healthcare providers found. Try another location or category.</div>
+    {% endif %}
+
+    <div class="footer">
+        <p>CareConnect | Healthcare Provider Search</p>
+        <p>© 2026 Lyann Duong. All rights reserved.</p>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
